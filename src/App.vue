@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Fragment } from "vue";
 import BorderBox from "./components/BorderBox.vue";
+import CliLink from "./components/CliLink.vue";
 import CliTypography from "./components/CliTypography.vue";
 
 const text =
@@ -9,7 +9,10 @@ const text =
 
 <template>
   <BorderBox>
-    <CliTypography variant="title">Hi there</CliTypography>
+    <CliTypography variant="title" block>Hi there</CliTypography>
+    <CliTypography block
+      ><CliLink url="http://localhost:5173">My website</CliLink></CliTypography
+    >
     <CliTypography cursor>{{ text }}</CliTypography>
   </BorderBox>
 </template>
