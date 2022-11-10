@@ -1,47 +1,15 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { Fragment } from "vue";
+import BorderBox from "./components/BorderBox.vue";
+import CliTypography from "./components/CliTypography.vue";
+
+const text =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id faucibus nisl tincidunt eget nullam non nisi est sit. Eget nulla facilisi etiam dignissim diam quis. Aliquet nec ullamcorper sit amet. Ullamcorper morbi tincidunt ornare massa. Nec sagittis aliquam malesuada bibendum. Leo in vitae turpis massa sed. Scelerisque eu ultrices vitae auctor eu augue. Diam vel quam elementum pulvinar etiam. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Et leo duis ut diam quam nulla. Lacus laoreet non curabitur gravida arcu ac tortor. Ut eu sem integer vitae. Purus in mollis nunc sed id semper risus. Viverra tellus in hac habitasse platea. At erat pellentesque adipiscing commodo elit at. Vel elit scelerisque mauris pellentesque pulvinar pellentesque. Porta non pulvinar neque laoreet suspendisse interdum.";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <BorderBox>
+    <CliTypography variant="title">Hi there</CliTypography>
+    <CliTypography cursor>{{ text }}</CliTypography>
+  </BorderBox>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
