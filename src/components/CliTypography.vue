@@ -2,9 +2,11 @@
 import { onMounted, onUnmounted, ref } from "vue";
 
 defineProps<{
-  variant?: "body" | "title";
+  variant?: "tiny" | "body" | "title";
   cursor?: boolean;
   block?: boolean;
+  paragraph?: boolean;
+  noFade?: boolean;
 }>();
 
 const showCursor = ref(true);
@@ -22,11 +24,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="{ inline: !block }">
+  <div :class="{ inline: !block, paragraph, 'fade-in': !noFade }">
     <span
       :class="{
         'variant-body': !variant || variant === 'body',
         'variant-title': variant === 'title',
+        'variant-tiny': variant === 'tiny',
         block,
       }"
     >
@@ -44,6 +47,13 @@ onUnmounted(() => {
   font-size: 1.2em;
   font-weight: 400;
 }
+.variant-tiny {
+  background-color: #eee;
+  letter-spacing: 0.1em;
+  line-height: 0px;
+  font-size: 0.8em;
+  font-weight: 400;
+}
 .variant-title {
   color: #555;
   letter-spacing: 0.1em;
@@ -56,5 +66,10 @@ onUnmounted(() => {
 }
 .inline {
   display: inline-block;
+}
+
+.paragraph {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

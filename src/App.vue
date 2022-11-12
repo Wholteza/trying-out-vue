@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import BorderBox from "./components/BorderBox.vue";
-import CliPage from "./components/CliPage.vue";
-import CliTypography from "./components/CliTypography.vue";
+import CliCommandBox from "./components/CliCommandBox.vue";
+import PageHelp from "./components/pages/PageHelp.vue";
+import Command from "./types/command";
+import { ref } from "vue";
+import PageHello from "./components/pages/PageHello.vue";
+import PageContact from "./components/pages/PageContact.vue";
+import PageNotFound from "./components/pages/PageNotFound.vue";
+import PageDemo from "./components/pages/PageDemo.vue";
 
-const text =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id faucibus nisl tincidunt eget nullam non nisi est sit. Eget nulla facilisi etiam dignissim diam quis. Aliquet nec ullamcorper sit amet. Ullamcorper morbi tincidunt ornare massa. Nec sagittis aliquam malesuada bibendum. Leo in vitae turpis massa sed. Scelerisque eu ultrices vitae auctor eu augue. Diam vel quam elementum pulvinar etiam. Vitae tortor condimentum lacinia quis vel eros donec ac odio. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Et leo duis ut diam quam nulla. Lacus laoreet non curabitur gravida arcu ac tortor. Ut eu sem integer vitae. Purus in mollis nunc sed id semper risus. Viverra tellus in hac habitasse platea. At erat pellentesque adipiscing commodo elit at. Vel elit scelerisque mauris pellentesque pulvinar pellentesque. Porta non pulvinar neque laoreet suspendisse interdum.";
+const command = ref<Command>();
 </script>
 
 <template>
   <BorderBox>
-    <CliPage
-      title="Hi There!"
-      :custom-header="['#!/bin/bash', 'echo $greeting']"
-    >
-      <CliTypography>Please enter a command</CliTypography>
-    </CliPage>
+    <PageHelp v-if="command === Command.help" />
+    <PageHello v-else-if="command === Command.hello || !command" />
+    <PageContact v-else-if="command === Command.contact" />
+    <PageDemo v-else-if="command === Command.demo" />
+    <PageNotFound v-else />
+    <CliCommandBox @command="(cmd) => (command = cmd)"></CliCommandBox>
   </BorderBox>
 </template>
