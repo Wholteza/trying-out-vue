@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BorderBox from "./components/BorderBox.vue";
-import CliLink from "./components/CliLink.vue";
+import CliPage from "./components/CliPage.vue";
 import CliTypography from "./components/CliTypography.vue";
 
 const text =
@@ -9,10 +9,11 @@ const text =
 
 <template>
   <BorderBox>
-    <CliTypography variant="title" block>Hi there</CliTypography>
-    <CliTypography block
-      ><CliLink url="http://localhost:5173">My website</CliLink></CliTypography
+    <CliPage
+      title="Hi There!"
+      :custom-header="['#!/bin/bash', 'echo $greeting']"
     >
-    <CliTypography cursor>{{ text }}</CliTypography>
+      <CliTypography>Please enter a command</CliTypography>
+    </CliPage>
   </BorderBox>
 </template>

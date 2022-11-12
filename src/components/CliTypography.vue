@@ -42,11 +42,13 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
   line-height: 1.3em;
   font-size: 1.2em;
+  font-weight: 400;
 }
 .variant-title {
   color: #555;
   letter-spacing: 0.1em;
-  font-size: 2em;
+  font-size: 3em;
+  font-weight: 500;
 }
 .cursor {
   color: #00ff77;

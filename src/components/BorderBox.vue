@@ -6,7 +6,7 @@
 .box {
   min-height: 100%;
   min-width: 100%;
-  padding: 15px;
+  padding: 5%;
 
   position: relative;
 
