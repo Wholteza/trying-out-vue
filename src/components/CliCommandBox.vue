@@ -56,7 +56,7 @@ const sharedStyle = computed<StyleValue>(() => ({
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .base {
   font-family: inherit;
   font-size: 1.7em;
