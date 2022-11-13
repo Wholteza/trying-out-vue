@@ -21,8 +21,4 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
-.container {
-  overflow-y: scroll;
-}
-</style>
+<style scoped></style>
