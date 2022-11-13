@@ -41,7 +41,11 @@ const submitButtonText = computed<string>(() =>
 
 <template>
   <div class="container">
-    <CliTypography variant="tiny" block no-fade
+    <CliTypography
+      variant="tiny"
+      block
+      no-fade
+      style="line-height: 0.8em; margin-bottom: 5px"
       >Enter a command or type 'help' to see all available
       commands.</CliTypography
     >
@@ -64,68 +68,70 @@ const submitButtonText = computed<string>(() =>
     </div>
   </div>
 </template>
-<style scoped>
-.base {
-  font-family: inherit;
-  font-size: 1.7em;
-  letter-spacing: inherit;
-  color: inherit;
-  background-color: #eeeeee;
-}
-.input {
-  border: none;
-  display: block;
-  width: 100%;
-  flex: 1 1;
-}
-.input:focus {
-  outline: none;
-  caret-color: #00ff33;
-}
-.button {
-  border: none;
-  display: block;
-  margin: 0px;
-  padding: 0px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
+<style scoped lang="sass">
+@import "./../assets/variables.sass"
+.base
+  font-family: inherit
+  font-size: 1.7em
+  letter-spacing: inherit
+  color: inherit
+  background-color: #eeeeee
 
-.caret {
-  padding-left: 10px;
-  padding-right: 10px;
-}
+.input
+  border: none
+  display: block
+  width: 100%
+  flex: 1 1
 
-.container {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-}
-.controls-container {
-  display: flex;
-  flex-direction: row;
-}
-@keyframes error {
-  25% {
-    background-color: #ff6961;
-    color: #eeeeee;
-  }
-  50% {
-    background-color: #eeeeee;
-    color: inherit;
-  }
-  75% {
-    background-color: #ff6961;
-    color: #eeeeee;
-  }
-  100% {
-    background-color: #eeeeee;
-    color: inherit;
-  }
-}
-.error {
-  animation-name: error;
-  animation-timing-function: ease-in-out;
-}
+.input:focus
+  outline: none
+  caret-color: #00ff33
+
+.button
+  border: none
+  display: block
+  margin: 0px
+  padding: 0px
+  padding-right: 10px
+  padding-left: 10px
+
+.caret
+  padding-left: 10px
+  padding-right: 10px
+
+.container
+  position: absolute
+  bottom: 10px
+  left: 10px
+  right: 10px
+
+.controls-container
+  display: flex
+  flex-direction: row
+
+@keyframes error
+  25%
+    background-color: #ff6961
+    color: #eeeeee
+
+  50%
+    background-color: #eeeeee
+    color: inherit
+
+  75%
+    background-color: #ff6961
+    color: #eeeeee
+
+  100%
+    background-color: #eeeeee
+    color: inherit
+
+
+.error
+  animation-name: error
+  animation-timing-function: ease-in-out
+
+@media screen and (max-width: $small-device-max-width)
+  .controls-container
+    font-size: 0.7em
 </style>
