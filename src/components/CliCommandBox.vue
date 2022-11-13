@@ -10,6 +10,8 @@ const emit = defineEmits<{
 const ERROR_ANIMATION_DURATION_MS: number = 400;
 const userInput = ref<string>("help");
 const isError = ref<boolean>(false);
+const isSmall = ref<boolean>(window.matchMedia("(max-width: 400px)").matches);
+
 const handleSubmit = () => {
   const command: Command | undefined =
     Command[userInput.value.toLowerCase() as keyof typeof Command];
@@ -22,13 +24,19 @@ const handleSubmit = () => {
   isError.value = false;
   emit("command", command);
 };
+
 const sharedClasses = computed<SharedClasses>(() => ({
   error: isError.value,
   base: true,
 }));
+
 const sharedStyle = computed<StyleValue>(() => ({
   "animation-duration": `${ERROR_ANIMATION_DURATION_MS}ms`,
 }));
+
+const submitButtonText = computed<string>(() =>
+  isSmall.value ? "Send" : "[Enter]"
+);
 </script>
 
 <template>
@@ -51,7 +59,7 @@ const sharedStyle = computed<StyleValue>(() => ({
         :class="['button', sharedClasses]"
         :style="sharedStyle"
       >
-        [Enter]
+        {{ submitButtonText }}
       </button>
     </div>
   </div>
@@ -68,6 +76,7 @@ const sharedStyle = computed<StyleValue>(() => ({
   border: none;
   display: block;
   width: 100%;
+  flex: 1 1;
 }
 .input:focus {
   outline: none;
@@ -81,6 +90,7 @@ const sharedStyle = computed<StyleValue>(() => ({
   padding-right: 10px;
   padding-left: 10px;
 }
+
 .caret {
   padding-left: 10px;
   padding-right: 10px;
