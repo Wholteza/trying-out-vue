@@ -4,8 +4,8 @@ import CliTypography from "../CliTypography.vue";
 </script>
 <template>
   <CliPage title="404" :custom-header="['???']">
-    <CliTypography block paragraph>
-      This page could not be found.
+    <CliTypography block paragraph cursor>
+      This page could not be found
     </CliTypography>
   </CliPage>
 </template>

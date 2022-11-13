@@ -12,8 +12,8 @@ const commands = `"${Object.keys(Command).join('", "')}"`;
     <CliTypography block paragraph>
       The available commands are {{ commands }}.</CliTypography
     >
-    <CliTypography block paragraph>
-      All commands are case sensitive.</CliTypography
+    <CliTypography block paragraph cursor>
+      All commands are case sensitive</CliTypography
     >
   </CliPage>
 </template>

@@ -12,7 +12,7 @@ const userInput = ref<string>("help");
 const isError = ref<boolean>(false);
 const handleSubmit = () => {
   const command: Command | undefined =
-    Command[userInput.value as keyof typeof Command];
+    Command[userInput.value.toLowerCase() as keyof typeof Command];
   userInput.value = "";
   if (!command) {
     isError.value = true;

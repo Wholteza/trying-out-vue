@@ -7,10 +7,10 @@ import CliTypography from "../CliTypography.vue";
     <CliTypography block paragraph>
       Hi there! Welcome to my website made in vue.
     </CliTypography>
-    <CliTypography block paragraph>
+    <CliTypography block paragraph cursor>
       This is just a simple test to explore and learn. It is quite impressive
       how fast you can progress when you're already experienced with similar
-      frameworks such as react or angular.
-    </CliTypography>
+      frameworks such as react or angular</CliTypography
+    >
   </CliPage>
 </template>
